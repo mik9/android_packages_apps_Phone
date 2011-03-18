@@ -2039,7 +2039,7 @@ public class CallFeaturesSetting extends PreferenceActivity
         mVib45 = pref.getBoolean(BUTTON_VIBRATE_45, false);
         mVibHangup = pref.getBoolean(BUTTON_VIBRATE_HANGUP, true);
         mScreenAwake = pref.getBoolean(BUTTON_SCREEN_AWAKE, false);
-        mAlwaysProximity = pref.getBoolean(BUTTON_ALWAYS_PROXIMITY, false);
+        mAlwaysProximity = pref.getBoolean(BUTTON_ALWAYS_PROXIMITY, true);
         mReturnHome = pref.getBoolean(BUTTON_RETURN_HOME, true);
         mLedNotify = pref.getBoolean(BUTTON_LED_NOTIFY, true);
         mShowOrgan = pref.getBoolean(BUTTON_SHOW_ORGAN, false);
