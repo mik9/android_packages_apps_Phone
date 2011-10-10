@@ -231,7 +231,7 @@ public class Settings extends PreferenceActivity implements DialogInterface.OnCl
                     getContentResolver(),android.provider.Settings.Secure.PREFERRED_NETWORK_MODE,
                     preferredNetworkMode);
             mButtonPreferredNetworkMode.setValue(Integer.toString(settingsNetworkMode));
-            mCdmaOptions = new CdmaOptions(this, prefSet);
+            //mCdmaOptions = new CdmaOptions(this, prefSet);
             mGsmUmtsOptions = new GsmUmtsOptions(this, prefSet);
         } else {
             prefSet.removePreference(mButtonPreferredNetworkMode);
