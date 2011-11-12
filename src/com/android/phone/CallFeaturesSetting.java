@@ -737,7 +737,7 @@ public class CallFeaturesSetting extends PreferenceActivity
                             mNewVMNumber,
                             Message.obtain(mRevertOptionComplete, EVENT_VOICEMAIL_CHANGED));
                 }
-                if (mFwdChangesRequireRollback) {
+                if (mFwdChangesRequireRollback && prevSettings != null) {
                     if (DBG) log("have to revert fwd");
                     final CallForwardInfo[] prevFwdSettings =
                         prevSettings.forwardingSettings;
@@ -1732,6 +1732,11 @@ public class CallFeaturesSetting extends PreferenceActivity
 //====
         mButtonHideHoldButton = (CheckBoxPreference) prefSet.findPreference(BUTTON_HIDE_HOLD_BUTTON);
         mButtonHideHoldButton.setChecked(mHideHoldButton);
+        // No reason to show this if the phone cannot hold
+        if (!TelephonyCapabilities.supportsHoldAndUnhold(mPhone)) {
+            ((PreferenceCategory) prefSet.findPreference(CATEGORY_ADVANCED))
+                    .removePreference(mButtonHideHoldButton);
+        }
     }
 
     private void createSipCallSettings() {
